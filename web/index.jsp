@@ -1,7 +1,7 @@
 <%-- 
     Document   : index
     Created on : Mar 20, 2015, 2:15:53 PM
-    Author     : Yoann
+    Author     : Yoann et Florian
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
