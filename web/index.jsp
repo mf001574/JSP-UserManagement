@@ -1,8 +1,10 @@
 <%-- 
     Document   : index
     Created on : Mar 20, 2015, 2:15:53 PM
-    Author     : Yoann et Florian
+    Author     : Florian Massa & Yoann Moise
 --%>
+
+
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -12,8 +14,13 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Gestionnaire d'utilisateurs</title>
+        <link rel="stylesheet" type="text/css"
+                href="${pageContext.request.contextPath}/resources/style.css" />
     </head>
     <body>
+        
+        <jsp:include page="header.jsp"/>
+
         <h1>Gestionnaire d'utilisateurs</h1>
 
 
@@ -59,6 +66,13 @@
                 <input type="hidden" name="action" value="updateUtilisateur"/>
                 <input type="submit" value="Mettre à jour" name="submit"/>
             </form>
+            
+            <li>Supprimer un utilisateur :</li>
+            <form action="ServletUsers" method="get">
+                Login : <input type="text" name="login"/><br>
+                <input type="hidden" name="action" value="supprimerUnUtilisateur"/>
+                <input type="submit" value="Supprimer" name="submit"/>
+            </form>
         </ol>
 
         <!-- Fin du menu -->
@@ -94,5 +108,8 @@
             </table>
 
         </c:if>
+            
+      	<jsp:include page="footer.jsp"/>
+
     </body>
 </html>
