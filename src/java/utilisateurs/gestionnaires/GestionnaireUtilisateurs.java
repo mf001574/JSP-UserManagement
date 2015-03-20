@@ -32,7 +32,8 @@ public class GestionnaireUtilisateurs {
     }
 
     public Utilisateur creeUtilisateur(String nom, String prenom, String login) {
-        Utilisateur u = new Utilisateur(nom, prenom, login);
+        Utilisateur u = new Utilisateur(login,prenom,nom);
+       
         em.persist(u);
         return u;
     }
