@@ -53,7 +53,11 @@ public class ServletUsers extends HttpServlet {
                 request.setAttribute("listeDesUsers", liste);
                 forwardTo = "index.jsp?action=listerLesUtilisateurs";
                 message = "Liste des utilisateurs";
-            } else {
+            }else if(action.equals("creerUnUtilisateur")){
+                forwardTo = "index.jsp?action=todo";
+                message = "La fonctionnalité pour la param";   
+                System.out.println("455454");
+            }else{
                 forwardTo = "index.jsp?action=todo";
                 message = "La fonctionnalité pour le paramètre " + action + " est à implémenter !";
             }
