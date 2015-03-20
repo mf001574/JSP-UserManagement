@@ -40,7 +40,7 @@
         <ol>
             <li><a href="ServletUsers?action=creerUtilisateursDeTest">Créer 4 utilisateurs de test</a></li>
 
-            <li><a href="creerUtilisateur.jsp">Créer un utilisateur</a></li> <!-- REVOIR LE LIEN HREF -->
+            <li>Créer un utilisateur</li>
             <form action="ServletUsers" method="get">
                 Nom : <input type="text" name="nom"/><br>
                 Prénom : <input type="text" name="prenom"/><br>
