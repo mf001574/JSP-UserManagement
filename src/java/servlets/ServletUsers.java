@@ -54,9 +54,12 @@ public class ServletUsers extends HttpServlet {
                 forwardTo = "index.jsp?action=listerLesUtilisateurs";
                 message = "Liste des utilisateurs";
             }else if(action.equals("creerUnUtilisateur")){
-                forwardTo = "index.jsp?action=todo";
-                message = "La fonctionnalité pour la param";   
-                System.out.println("455454");
+                forwardTo = "index.jsp?action=listerLesUtilisateurs";
+                message = "ajout d'un utilisateur";
+                String nom = (String) request.getParameter("nom");
+                String prenom = (String)request.getParameter("prenom");
+                String login =  (String) request.getParameter("login");
+                this.gestionnaireUtilisateurs.creeUtilisateur(nom, prenom, login);
             }else{
                 forwardTo = "index.jsp?action=todo";
                 message = "La fonctionnalité pour le paramètre " + action + " est à implémenter !";
