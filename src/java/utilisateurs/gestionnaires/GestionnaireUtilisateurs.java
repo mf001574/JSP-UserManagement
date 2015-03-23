@@ -37,7 +37,18 @@ public class GestionnaireUtilisateurs {
         em.persist(u);
         return u;
     }
-
+    
+    public void supprimerUtilisateur(String login){
+        Query q = em.createQuery("delete from Utilisateur u where u.login='"+login+"'");
+        int nbsup = q.executeUpdate();
+        System.out.println("Requête SQL : delete from Utilisateur u where u.login='"+login+"'");
+        System.out.println("Nb de tuples supprimés : "+nbsup);
+    
+    }
+    public Collection<Utilisateur> getUtilisateursWithLogin(String login){
+        Query q = em.createQuery("select u from Utilisateur u where u.login = '"+login+"'");
+        return q.getResultList();
+    }
     public Collection<Utilisateur> getAllUsers() {
         // Exécution d'une requête équivalente à un select *
         Query q = em.createQuery("select u from Utilisateur u");
@@ -45,4 +56,9 @@ public class GestionnaireUtilisateurs {
     }
     // Add business logic below. (Right-click in editor and choose
     // "Insert Code > Add Business Method")
+
+    public void majUtilisateur(String login, String nom, String prenom) {
+       Query q = em.createQuery("delete from Utilisateur u where u.login='"+login+"'");
+       int nbsup = q.executeUpdate();
+    }
 }

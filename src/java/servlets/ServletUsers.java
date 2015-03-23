@@ -55,17 +55,35 @@ public class ServletUsers extends HttpServlet {
                 message = "Liste des utilisateurs";
             }else if(action.equals("creerUnUtilisateur")){
                 forwardTo = "index.jsp?action=listerLesUtilisateurs";
-                message = "ajout d'un utilisateur";
+                message = "Liste des utilisateurs";
                 String nom = (String) request.getParameter("nom");
                 String prenom = (String)request.getParameter("prenom");
                 String login =  (String) request.getParameter("login");
-                System.out.println("nom ->"+nom);
-                System.out.println("prenom ->"+prenom);
-                System.out.println("login ->"+login);
                 this.gestionnaireUtilisateurs.creeUtilisateur(nom, prenom, login);
+            }else if(action.equals("supprimerUnUtilisateur")){
+                forwardTo = "index.jsp?action=listerLesUtilisateurs";
+                message = "Liste des utilisateurs";
+                String login = (String) request.getParameter("login");
+                this.gestionnaireUtilisateurs.supprimerUtilisateur(login);
+            }else if(action.equals("chercherParLogin")){
+                forwardTo = "index.jsp?action=listerLesUtilisateurs";
+                message = "Recherche par login";
+                String login = (String) request.getParameter("login");
+                request.setAttribute("listeDesUsers", this.gestionnaireUtilisateurs.getUtilisateursWithLogin(login));
+            }else if(action.equals("updateUtilisateur")){
+                forwardTo = "index.jsp?action=listerLesUtilisateurs";
+                message = "Mise à jour d'un utilisateur";
+                String nom = (String) request.getParameter("nom");
+                String prenom = (String)request.getParameter("prenom");
+                String login =  (String) request.getParameter("login");
+                this.gestionnaireUtilisateurs.majUtilisateur(login,nom,prenom);
+                Collection<Utilisateur> liste = this.gestionnaireUtilisateurs.getAllUsers();
+                request.setAttribute("listeDesUsers", liste);
+                
             }else{
                 forwardTo = "index.jsp?action=todo";
                 message = "La fonctionnalité pour le paramètre " + action + " est à implémenter !";
+               
             }
         }
 
