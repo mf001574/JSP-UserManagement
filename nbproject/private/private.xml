@@ -3,19 +3,13 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-<<<<<<< HEAD
+            <file>file:/C:/Users/Yoann/Documents/GitHub/UserManagement/web/createUser.jsp</file>
             <file>file:/C:/Users/Yoann/Documents/GitHub/UserManagement/src/java/servlets/ServletUsers.java</file>
             <file>file:/C:/Users/Yoann/Documents/GitHub/UserManagement/web/resources/style.css</file>
             <file>file:/C:/Users/Yoann/Documents/GitHub/UserManagement/web/index.jsp</file>
             <file>file:/C:/Users/Yoann/Documents/GitHub/UserManagement/web/header.jsp</file>
             <file>file:/C:/Users/Yoann/Documents/GitHub/UserManagement/web/footer.jsp</file>
             <file>file:/C:/Users/Yoann/Documents/GitHub/UserManagement/web/template.jsp</file>
-=======
-            <file>file:/C:/Users/Florian/Documents/Miage/M1/S2/web/tps/repositoryTP2/UserManagement/setup/sun-resources.xml</file>
-            <file>file:/C:/Users/Florian/Documents/Miage/M1/S2/web/tps/repositoryTP2/UserManagement/src/java/utilisateurs/gestionnaires/GestionnaireUtilisateurs.java</file>
-            <file>file:/C:/Users/Florian/Documents/Miage/M1/S2/web/tps/repositoryTP2/UserManagement/web/index.jsp</file>
-            <file>file:/C:/Users/Florian/Documents/Miage/M1/S2/web/tps/repositoryTP2/UserManagement/src/java/servlets/ServletUsers.java</file>
->>>>>>> fcdb74e254599ce7908430477fa54e0c13990f54
         </group>
     </open-files>
 </project-private>
