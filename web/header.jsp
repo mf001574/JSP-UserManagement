@@ -25,7 +25,6 @@
                             <li><a href="displayUser.jsp">Afficher les détails d'un utilisateur</a></li>
                             <li><a href="modifyUser.jsp">Modifier les détails d'un utilisateur</a></li>
                             <li><a href="deleteUser.jsp">Supprimer un utilisateur</a></li>
-                            <li><a href="createFourUsers.jsp">Créer 4 utilisateurs test</a></li>                        
                         </ul> 
                     </div>
                 </div>
