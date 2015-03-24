@@ -48,11 +48,17 @@ public class ServletUsers extends HttpServlet {
                 forwardTo = "index.jsp?action=listerLesUtilisateurs";
                 message = "Liste des utilisateurs";
             } else if (action.equals("creerUtilisateursDeTest")) {
-                  gestionnaireUtilisateurs.creerUtilisateursDeTest();
+                this.gestionnaireUtilisateurs.creerUtilisateursDeTest();
                 Collection<Utilisateur> liste = gestionnaireUtilisateurs.getAllUsers();
                 request.setAttribute("listeDesUsers", liste);
                 forwardTo = "index.jsp?action=listerLesUtilisateurs";
-                message = "Liste des utilisateurs";
+                message = "Création de 4 utilisateurs";
+            }else if(action.equals("creer100UtilisateursDeTest")){
+                this.gestionnaireUtilisateurs.creer100UtilisateursDeTest();
+                Collection<Utilisateur> liste = gestionnaireUtilisateurs.getAllUsers();
+                request.setAttribute("listeDesUsers", liste);
+                forwardTo = "index.jsp?action=listerLesUtilisateurs";
+                message = "Création de 100 utilisateurs";
             }else if(action.equals("creerUnUtilisateur")){
                 forwardTo = "index.jsp?action=listerLesUtilisateurs";
                 message = "Liste des utilisateurs";
@@ -60,11 +66,15 @@ public class ServletUsers extends HttpServlet {
                 String prenom = (String)request.getParameter("prenom");
                 String login =  (String) request.getParameter("login");
                 this.gestionnaireUtilisateurs.creeUtilisateur(nom, prenom, login);
+                Collection<Utilisateur> liste = this.gestionnaireUtilisateurs.getAllUsers();
+                request.setAttribute("listeDesUsers", liste);
             }else if(action.equals("supprimerUnUtilisateur")){
                 forwardTo = "index.jsp?action=listerLesUtilisateurs";
                 message = "Liste des utilisateurs";
                 String login = (String) request.getParameter("login");
                 this.gestionnaireUtilisateurs.supprimerUtilisateur(login);
+                Collection<Utilisateur> liste = this.gestionnaireUtilisateurs.getAllUsers();
+                request.setAttribute("listeDesUsers", liste);
             }else if(action.equals("chercherParLogin")){
                 forwardTo = "index.jsp?action=listerLesUtilisateurs";
                 message = "Recherche par login";

@@ -23,12 +23,22 @@ public class GestionnaireUtilisateurs {
     // à partir du contenu de persistence.xml
     @PersistenceContext
     private EntityManager em;
+    static String[] prenomsTest = {"John","Paul", "Yoann", "Florian", "David", "Yann","Yves","Patrick","Jean","Noel","Michel", "Elmahdi","Wissam","Harold","Kevin","Maxence","Maxime","Rémi", "Karim","Nicolas","Zalbiya","Fabrice"};
+    static String[] nomsTest = {"Marchal","Martin","Delaplace","Korfed","Moise","Carbonini","Besson","Massa","Silima","Fighiera","Garbi","Garo","El Hadi","Chazara","Demetrio","Allegro","Arifa","Gauche","Ali Kari","Jauvat"};
 
     public void creerUtilisateursDeTest() {
         creeUtilisateur("John", "Lennon", "jlennon");
         creeUtilisateur("Paul", "Mac Cartney", "pmc");
         creeUtilisateur("Ringo", "Starr", "rstarr");
         creeUtilisateur("Georges", "Harisson", "georgesH");
+    }
+    
+    public void creer100UtilisateursDeTest(){
+        for(int i = 1 ; i<=100;i++){
+            int indice1 = (int)(Math.random()*(nomsTest.length-1));
+            int indice2 = (int)(Math.random()*(prenomsTest.length-1));
+            creeUtilisateur(nomsTest[indice1],prenomsTest[indice2],nomsTest[indice1]+i);
+        }
     }
 
     public Utilisateur creeUtilisateur(String nom, String prenom, String login) {
@@ -58,7 +68,15 @@ public class GestionnaireUtilisateurs {
     // "Insert Code > Add Business Method")
 
     public void majUtilisateur(String login, String nom, String prenom) {
-       Query q = em.createQuery("delete from Utilisateur u where u.login='"+login+"'");
-       int nbsup = q.executeUpdate();
+       Query q = em.createQuery("update Utilisateur u "
+               + "set u.lastname = '"+nom+"', "
+               + "u.firstname = '"+prenom+"' "
+               + "where u.login='"+login+"'");
+       int nbmod = q.executeUpdate();
+       System.out.println("update Utilisateur u "
+               + "set u.lastname = '"+nom+"', "
+               + "u.firstname = '"+prenom+"' "
+               + "where u.login='"+login+"'");
+       System.out.println("Nb de tuples modifiés : "+ nbmod);
     }
 }

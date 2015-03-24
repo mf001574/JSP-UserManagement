@@ -58,6 +58,16 @@
                                 </form>
                                 <div style="clear: both;"></div>
                             </div>
+                           <h2 style="text-align:center;"> -- OU -- </h2>
+                           <h3>Créer 100 utilisateurs de test</h3>
+                            <div id="form-area">
+                                <form action="ServletUsers" method="get">
+                                    <!-- Astuce pour passer des paramètres à une servlet depuis un formulaire JSP !-->
+                                    <input type="hidden" name="action" value="creer100UtilisateursDeTest"/>
+                                    <input type="submit" value="Créer 100 utilisateurs" name="submit" class="submit-button"/>
+                                </form>
+                                <div style="clear: both;"></div>
+                            </div>
 
                         
                     </div>
