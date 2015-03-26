@@ -26,7 +26,7 @@
 
                 <div class="pure-pusher-container">
                     <div class="pure-pusher">
-                    <div class="contenu" style="margin-top:-50px;">
+                    <div class="contenu">
                                          
                         <h3>Créer un utilisateur</h3>
                         <div id="form-area">

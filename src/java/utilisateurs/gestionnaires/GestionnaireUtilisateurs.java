@@ -69,8 +69,8 @@ public class GestionnaireUtilisateurs {
 
     public void majUtilisateur(String login, String nom, String prenom) {
        Query q = em.createQuery("update Utilisateur u "
-               + "set u.lastname = '"+nom+"', "
-               + "u.firstname = '"+prenom+"' "
+               + "set u.lastname = '"+prenom+"', "
+               + "u.firstname = '"+nom+"' "
                + "where u.login='"+login+"'");
        int nbmod = q.executeUpdate();
        System.out.println("update Utilisateur u "
