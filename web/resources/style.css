@@ -398,3 +398,21 @@ label {
   text-decoration: none;
 }
 
+.button-link{
+  color:white !important;
+}
+.button-link:hover{
+   color : rgb(220,220,220)
+}
+
+.tfooter td{
+   background-color: #A7C942;
+   border:none;
+}
+.listing th{
+    border:none;
+}
+.listing th{
+}
+
+

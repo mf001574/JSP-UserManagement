@@ -25,7 +25,20 @@ public class GestionnaireUtilisateurs {
     private EntityManager em;
     static String[] prenomsTest = {"John","Paul", "Yoann", "Florian", "David", "Yann","Yves","Patrick","Jean","Noel","Michel", "Elmahdi","Wissam","Harold","Kevin","Maxence","Maxime","Rémi", "Karim","Nicolas","Zalbiya","Fabrice"};
     static String[] nomsTest = {"Marchal","Martin","Delaplace","Korfed","Moise","Carbonini","Besson","Massa","Silima","Fighiera","Garbi","Garo","El Hadi","Chazara","Demetrio","Allegro","Arifa","Gauche","Ali Kari","Jauvat"};
+    private int indice;
+    
+    public GestionnaireUtilisateurs(){
+        this.indice = 0;
+    }
 
+    public int getIndice() {
+        return indice;
+    }
+
+    public void setIndice(int indice) {
+        this.indice = indice;
+    }
+    
     public void creerUtilisateursDeTest() {
         creeUtilisateur("John", "Lennon", "jlennon");
         creeUtilisateur("Paul", "Mac Cartney", "pmc");
@@ -62,6 +75,10 @@ public class GestionnaireUtilisateurs {
     public Collection<Utilisateur> getAllUsers() {
         // Exécution d'une requête équivalente à un select *
         Query q = em.createQuery("select u from Utilisateur u");
+        q.setFirstResult(this.indice);
+        q.setMaxResults(10);
+        this.indice+=10;
+        System.out.println("indice->"+this.indice);
         return q.getResultList();
     }
     // Add business logic below. (Right-click in editor and choose

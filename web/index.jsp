@@ -66,7 +66,9 @@
 
                                 <!-- Affichage du solde total dans la dernière ligne du tableau -->
                                 <tr><td><b>TOTAL</b></td><td></td><td><b>${total}</b></td></tr>
+                                <tr class='tfooter'><td><a href='ServletUsers?action=listerLesUtilisateurs&deplacement=pre' class='button-link'>Précédent</a></td><td></td><td><a href='ServletUsers?action=listerLesUtilisateurs&deplacement=suiv' class='button-link'>Suivant</a></td></tr>
                             </table>
+                         
 
                         </c:if>
                     </div>

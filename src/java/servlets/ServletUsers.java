@@ -40,6 +40,7 @@ public class ServletUsers extends HttpServlet {
         String action = request.getParameter("action");
         String forwardTo = "";
         String message = "";
+        this.gestionnaireUtilisateurs.setIndice(0);
 
         if (action != null) {
             if (action.equals("listerLesUtilisateurs")) {
