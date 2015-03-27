@@ -25,7 +25,6 @@
 
                 <jsp:include page="header.jsp"/>
 
-               
                     <div class="contenu">
                      
                         <h3>${nbTuples} utilisateurs enregistrés</h3>
