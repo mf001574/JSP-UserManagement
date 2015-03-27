@@ -1,7 +1,7 @@
 <%-- 
     Document   : index
     Created on : Mar 20, 2015, 2:15:53 PM
-    Author     : Florian Massa & Yoann Moise
+    Author     : Florian Massa and Yoann Moise
 --%>
 
 

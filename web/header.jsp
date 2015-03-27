@@ -1,7 +1,7 @@
 <%-- 
     Document   : header
     Created on : Mar 20, 2015, 4:04:40 PM
-    Author     : Florian Massa & Yoann Moise
+    Author     : Florian Massa and Yoann Moise
 --%>
       
 <input type="checkbox" id="pure-toggle-left" class="pure-toggle" data-toggle="left"/>
@@ -36,15 +36,3 @@
                             </form> 
                         </div> 
                         <hr>
-
-<!--
-<div>
-    <a href="createUser.jsp">Creer un compte utilisateur</a>
-    <a href="displayUser.jsp">Afficher les détails d'un utilisateur</a>
-    <a href="modifyUser.jsp">Modifier les détails d'un utilisateur</a>
-    <a href="deleteUser.jsp">Supprimer un utilisateur</a>
-    <a href="createFourUsers.jsp">Créer 4 utilisateurs test</a>
-    <a href="${pageContext.request.contextPath}">
-        <img src="${pageContext.request.contextPath}/resources/logo.jpg"/>
-    </a>
-</div>-->

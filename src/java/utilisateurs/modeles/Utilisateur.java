@@ -13,7 +13,7 @@ import javax.persistence.Id;
 
 /**
  *
- * @author Yoann
+ * @author Florian Massa and Yoann Moise
  */
 @Entity
 public class Utilisateur implements Serializable {

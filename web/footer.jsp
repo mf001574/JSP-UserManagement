@@ -1,7 +1,7 @@
 <%-- 
     Document   : footer
     Created on : Mar 20, 2015, 4:05:02 PM
-    Author     : Florian Massa & Yoann Moise
+    Author     : Florian Massa and Yoann Moise
 --%>
 <!--
 <div id="footer">

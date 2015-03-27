@@ -14,7 +14,7 @@ import utilisateurs.modeles.Utilisateur;
 
 /**
  *
- * @author Yoann
+ * @author Florian Massa and Yoann Moise
  */
 
 @Stateless

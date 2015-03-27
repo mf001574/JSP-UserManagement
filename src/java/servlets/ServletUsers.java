@@ -19,7 +19,7 @@ import utilisateurs.modeles.Utilisateur;
 
 /**
  *
- * @author Yoann
+ * @author Florian Massa and Yoann Moise
  */
 @WebServlet(name = "ServletUsers", urlPatterns = {"/ServletUsers"})
 public class ServletUsers extends HttpServlet {

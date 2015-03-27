@@ -1,11 +1,11 @@
-/*
+ /*
 To change this license header, choose License Headers in Project Properties.
 To change this template file, choose Tools | Templates
 and open the template in the editor.
 */
 /* 
     Created on : Mar 12, 2015, 11:03:20 AM
-    Author     : Yoann
+    Author     : Florian Massa and Yoann Moise
 */
 
 
@@ -227,7 +227,7 @@ form.semantic label.error
 /* from caucho.com */
 #footer hr
 {
-  width: 100%;
+  max-width: 100%;
 }
 #footer
 {
@@ -429,7 +429,7 @@ h1,h2,h3,h4{
 
 hr{
     color:#5D809D;
-    width:100%;
+    max-width:100%;
 }
 #formConnexion{
     float:left;

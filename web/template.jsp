@@ -1,7 +1,7 @@
 <%-- 
     Document   : template
     Created on : Mar 20, 2015, 4:02:24 PM
-    Author     : Yoann
+    Author     : Florian Massa and Yoann Moise
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
