@@ -74,7 +74,9 @@
                         </c:if>
                             
                         <c:if test="${!connecte}">
-                            Pour pouvoir effectuer une action, il suffit de vous connecter!
+                            <figure>
+                                <figcaption style="text-align:center;"><b>Pour pouvoir effectuer une action, il suffit de vous connecter!</b></figcaption>
+                            </figure>
                         </c:if>
                     </div>
                     <jsp:include page="footer.jsp"/>

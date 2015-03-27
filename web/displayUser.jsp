@@ -27,19 +27,28 @@
                 <div class="pure-pusher-container">
                     <div class="pure-pusher">
                     <div class="contenu">
-                        <h3>Afficher les détails d'un utilisateur</h3>
-                        <div id="form-area">
-                            <form action="ServletUsers" method="get">
-                                <label for="login">Login : </label>
-                                <input type="text" name="login"/>
-                                
-                                <input type="hidden" name="action" value="chercherParLogin"/>
-                                
-                                <input type="submit" value="Chercher" name="submit" class="submit-button"/>
-                            </form>
+                        <c:if test="${connecte}">
+                            <h3>Afficher les détails d'un utilisateur</h3>
+                            <div id="form-area">
+                                <form action="ServletUsers" method="get">
+                                    <label for="login">Login : </label>
+                                    <input type="text" name="login"/>
+
+                                    <input type="hidden" name="action" value="chercherParLogin"/>
+
+                                    <input type="submit" value="Chercher" name="submit" class="submit-button"/>
+                                </form>
+
+                                <div style="clear: both;"></div>
+                            </div>
+                        </c:if>
                             
-                            <div style="clear: both;"></div>
-                        </div>
+                        <c:if test="${!connecte}">
+                            <figure>
+                                <img src="${pageContext.request.contextPath}/resources/Warning.png" alt="Vous devez vous connecter" style="width:50%; height:50%; margin-right: 25%; margin-left:25%;"/><br/><br/>
+                                <figcaption style="text-align:center;"><b>Pour pouvoir effectuer cette action, il suffit de vous connecter!</b></figcaption>
+                            </figure>
+                        </c:if>
                     </div>
                         <jsp:include page="footer.jsp"/>
                      </div>

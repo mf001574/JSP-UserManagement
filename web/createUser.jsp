@@ -27,49 +27,57 @@
                 <div class="pure-pusher-container">
                     <div class="pure-pusher">
                     <div class="contenu">
-                                         
-                        <h3>Créer un utilisateur</h3>
-                        <div id="form-area">
-                            <form action="ServletUsers" method="get">
-                                <label for="nom">Nom :</label>
-                                <input type="text" name="nom"/>
-                                
-                                <label for="login">Prenom :</label>
-                                <input type="text" name="prenom"/>
-                                
-                                <label for="login">Login :</label>
-                                <input type="text" name="login"/>
-                                
-                                <!-- Astuce pour passer des paramètres à une servlet depuis un formulaire JSP !-->
-                                <input type="hidden" name="action" value="creerUnUtilisateur"/>
-                                
-                                <input type="submit" value="Créer l'utilisateur" name="submit" class="submit-button"/>
-                            </form>
-                            
-                            <div style="clear: both;"></div>
-                        </div>
-                        <h2 style="text-align:center;"> -- OU -- </h2>
-                            <h3>Créer 4 utilisateurs de test</h3>
-                            <div id="form-area">
-                                <form action="ServletUsers" method="get">
-                                    <!-- Astuce pour passer des paramètres à une servlet depuis un formulaire JSP !-->
-                                    <input type="hidden" name="action" value="creerUtilisateursDeTest"/>
-                                    <input type="submit" value="Créer 4 utilisateurs" name="submit" class="submit-button"/>
-                                </form>
-                                <div style="clear: both;"></div>
-                            </div>
-                           <h2 style="text-align:center;"> -- OU -- </h2>
-                           <h3>Créer 100 utilisateurs de test</h3>
-                            <div id="form-area">
-                                <form action="ServletUsers" method="get">
-                                    <!-- Astuce pour passer des paramètres à une servlet depuis un formulaire JSP !-->
-                                    <input type="hidden" name="action" value="creer100UtilisateursDeTest"/>
-                                    <input type="submit" value="Créer 100 utilisateurs" name="submit" class="submit-button"/>
-                                </form>
-                                <div style="clear: both;"></div>
-                            </div>
-
                         
+                        <c:if test="${connecte}">
+                                         
+                            <h3>Créer un utilisateur</h3>
+                            <div id="form-area">
+                                <form action="ServletUsers" method="get">
+                                    <label for="nom">Nom :</label>
+                                    <input type="text" name="nom"/>
+
+                                    <label for="login">Prenom :</label>
+                                    <input type="text" name="prenom"/>
+
+                                    <label for="login">Login :</label>
+                                    <input type="text" name="login"/>
+
+                                    <!-- Astuce pour passer des paramètres à une servlet depuis un formulaire JSP !-->
+                                    <input type="hidden" name="action" value="creerUnUtilisateur"/>
+
+                                    <input type="submit" value="Créer l'utilisateur" name="submit" class="submit-button"/>
+                                </form>
+
+                                <div style="clear: both;"></div>
+                            </div>
+                            <h2 style="text-align:center;"> -- OU -- </h2>
+                                <h3>Créer 4 utilisateurs de test</h3>
+                                <div id="form-area">
+                                    <form action="ServletUsers" method="get">
+                                        <!-- Astuce pour passer des paramètres à une servlet depuis un formulaire JSP !-->
+                                        <input type="hidden" name="action" value="creerUtilisateursDeTest"/>
+                                        <input type="submit" value="Créer 4 utilisateurs" name="submit" class="submit-button"/>
+                                    </form>
+                                    <div style="clear: both;"></div>
+                                </div>
+                               <h2 style="text-align:center;"> -- OU -- </h2>
+                               <h3>Créer 100 utilisateurs de test</h3>
+                                <div id="form-area">
+                                    <form action="ServletUsers" method="get">
+                                        <!-- Astuce pour passer des paramètres à une servlet depuis un formulaire JSP !-->
+                                        <input type="hidden" name="action" value="creer100UtilisateursDeTest"/>
+                                        <input type="submit" value="Créer 100 utilisateurs" name="submit" class="submit-button"/>
+                                    </form>
+                                    <div style="clear: both;"></div>
+                                </div>
+                        </c:if>
+                               
+                        <c:if test="${!connecte}">
+                            <figure>
+                                <img src="${pageContext.request.contextPath}/resources/Warning.png" alt="Vous devez vous connecter" style="width:50%; height:50%; margin-right: 25%; margin-left:25%;"/><br/><br/>
+                                <figcaption style="text-align:center;"><b>Pour pouvoir effectuer cette action, il suffit de vous connecter!</b></figcaption>
+                            </figure>
+                        </c:if>
                     </div>
                         <jsp:include page="footer.jsp"/>
                      </div>
