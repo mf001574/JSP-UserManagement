@@ -29,16 +29,26 @@
     <div class="pure-pusher">
         <div class='header'>
             <h2>Gestion des utilisateurs </h2>
+                            <form action="ServletConnexion" method="get" id="formConnexion">
+
             <c:if test="${!connecte}">
-                <form action="ServletConnexion" method="get" id="formConnexion">
-                    <input type="text" placeholder="login" name="login" class='inputHeader'>
-                    <input type="text" placeholder="mot de passe" name="mdp" class='inputHeader'>
-                    <input type="submit" value="Se connecter" name="action" class='inputSubmitHeader'>
-                </form> 
+                    <input type="text" placeholder="Login" name="log" class='inputHeader'>
+                    <input type="text" placeholder="Password" name="pass" class='inputHeader'>
+                    
+                    <input type="hidden" name="action" value="checkConnexion">
+                        
+                    <input type="submit" value="Se connecter" name="action" class="inputSubmitHeader">
+                    
             </c:if>
 
             <c:if test="${connecte}">
-                <a href="ServletConnexion?action=deconnexion">Déconnexion</a>
+                
+                                 <input type="hidden" name="action" value="deconnexion">
+
+                    <input type="submit" value="Se déconnecter" name="action" class="inputSubmitHeader">
+
             </c:if>
+                                </form> 
+
         </div> 
         <hr>

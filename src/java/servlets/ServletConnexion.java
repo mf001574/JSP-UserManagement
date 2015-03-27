@@ -12,6 +12,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -31,19 +32,31 @@ public class ServletConnexion extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet ServletConnexion</title>");            
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet ServletConnexion at " + request.getContextPath() + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
+        
+        String action = request.getParameter("action");
+        HttpSession session = request.getSession(true);
+        
+        if(action.equals("checkConnexion")) {
+            if (request.getParameter("log").equals("admin") &&
+                request.getParameter("pass").equals("admin")) {
+                 session.setAttribute("login", "admin");
+                 session.setAttribute("mdp", "admin");
+                 session.setAttribute("connecte", true);
+            } else {
+                 session.setAttribute("connecte", false);
+            }
+        } else if (action.equals("deconnexion")) {
+            session.setAttribute("connecte", false);
         }
+        
+        // Redirection vers la page d'accueil
+        // Si on arrive ici par Get:
+        // RequestDispatcher dp = request.getRequestDispatcher("index.jsp");
+        // dp.forward(request, response);
+        
+        // Si par POST (le plus courant). JAMAIS DE FORWARD APRES LE POST !
+        response.sendRedirect("index.jsp");
+        
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
