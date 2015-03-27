@@ -3,7 +3,7 @@
     Created on : Mar 20, 2015, 4:04:40 PM
     Author     : Florian Massa and Yoann Moise
 --%>
-      
+     
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <input type="checkbox" id="pure-toggle-left" class="pure-toggle" data-toggle="left"/>
 <label class="pure-toggle-label" for="pure-toggle-left" data-toggle-label="left">
