@@ -11,16 +11,16 @@
     <head>
         <title>${param.title}</title>
         <link rel="stylesheet" type="text/css"
-                href="${pageContext.request.contextPath}/resources/style.css" />
+              href="${pageContext.request.contextPath}/resources/style.css" />
     </head>
     <body>
         <jsp:include page="header.jsp"/>
 
-	
-	<h1>${param.title}</h1>
 
-	<jsp:include page="${param.content}.jsp"/>
-	
-	<jsp:include page="footer.jsp"/>
+        <h1>${param.title}</h1>
+
+        <jsp:include page="${param.content}.jsp"/>
+
+        <jsp:include page="footer.jsp"/>
     </body>
 </html>

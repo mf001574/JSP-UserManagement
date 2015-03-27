@@ -15,17 +15,17 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Gestionnaire d'utilisateurs</title>
         <link rel="stylesheet" type="text/css"
-                href="${pageContext.request.contextPath}/resources/style.css" />
+              href="${pageContext.request.contextPath}/resources/style.css" />
         <link rel="stylesheet" type="text/css"
-                href="${pageContext.request.contextPath}/resources/app.min.css" media="all"/>
+              href="${pageContext.request.contextPath}/resources/app.min.css" media="all"/>
     </head>
     <body>
         <div class="pure-container" data-effect="pure-effect-reveal">
 
-                <jsp:include page="header.jsp"/>
+            <jsp:include page="header.jsp"/>
 
-                <div class="pure-pusher-container">
-                    <div class="pure-pusher">
+            <div class="pure-pusher-container">
+                <div class="pure-pusher">
                     <div class="contenu">
                         <c:if test="${connecte}">
                             <h3>Afficher les détails d'un utilisateur</h3>
@@ -42,7 +42,7 @@
                                 <div style="clear: both;"></div>
                             </div>
                         </c:if>
-                            
+
                         <c:if test="${!connecte}">
                             <figure>
                                 <img src="${pageContext.request.contextPath}/resources/Warning.png" alt="Vous devez vous connecter" style="width:50%; height:50%; margin-right: 25%; margin-left:25%;"/><br/><br/>
@@ -50,9 +50,9 @@
                             </figure>
                         </c:if>
                     </div>
-                        <jsp:include page="footer.jsp"/>
-                     </div>
+                    <jsp:include page="footer.jsp"/>
                 </div>
+            </div>
             <label class="pure-overlay" for="pure-toggle-left" data-overlay="left"></label> 
         </div>
     </body>

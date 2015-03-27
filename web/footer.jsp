@@ -20,16 +20,16 @@
 </div>-->
 
 <div id="footer">
-<div class="footer section" id="features">
-		<div class="row">
-			<div class="large-12 columns">
-                                <a href="http://miage.unice.fr/" style="margin-right:10px">Miage HOME</a> |
-                                <a href="http://florian-massa.com/" style="margin-left:10px; margin-right:10px">Florian Massa's website</a> |
-                                <a href="http://yoann-moise.com/" style="margin-left:10px">Yoann Moise's website</a>
-			</div>
-			<div class="large-12 columns">
-				<p>Ce projet a été réalisé au sein de l'Université Nice Sophia Antipolis.</p>
-			</div>
-		</div>
-	</div>
+    <div class="footer section" id="features">
+        <div class="row">
+            <div class="large-12 columns">
+                <a href="http://miage.unice.fr/" style="margin-right:10px">Miage HOME</a> |
+                <a href="http://florian-massa.com/" style="margin-left:10px; margin-right:10px">Florian Massa's website</a> |
+                <a href="http://yoann-moise.com/" style="margin-left:10px">Yoann Moise's website</a>
+            </div>
+            <div class="large-12 columns">
+                <p>Ce projet a été réalisé au sein de l'Université Nice Sophia Antipolis.</p>
+            </div>
+        </div>
+    </div>
 </div>

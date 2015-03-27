@@ -32,31 +32,30 @@ public class ServletConnexion extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
+
         String action = request.getParameter("action");
         HttpSession session = request.getSession(true);
-        
-        if(action.equals("checkConnexion")) {
-            if (request.getParameter("log").equals("admin") &&
-                request.getParameter("pass").equals("admin")) {
-                 session.setAttribute("login", "admin");
-                 session.setAttribute("mdp", "admin");
-                 session.setAttribute("connecte", true);
+
+        if (action.equals("checkConnexion")) {
+            if (request.getParameter("log").equals("admin")
+                    && request.getParameter("pass").equals("admin")) {
+                session.setAttribute("login", "admin");
+                session.setAttribute("mdp", "admin");
+                session.setAttribute("connecte", true);
             } else {
-                 session.setAttribute("connecte", false);
+                session.setAttribute("connecte", false);
             }
         } else if (action.equals("deconnexion")) {
             session.setAttribute("connecte", false);
         }
-        
+
         // Redirection vers la page d'accueil
         // Si on arrive ici par Get:
         // RequestDispatcher dp = request.getRequestDispatcher("index.jsp");
         // dp.forward(request, response);
-        
         // Si par POST (le plus courant). JAMAIS DE FORWARD APRES LE POST !
         response.sendRedirect("index.jsp");
-        
+
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

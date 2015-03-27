@@ -72,12 +72,12 @@
                                 </div>
                         </c:if>
                                
-                        <c:if test="${!connecte}">
-                            <figure>
-                                <img src="${pageContext.request.contextPath}/resources/Warning.png" alt="Vous devez vous connecter" style="width:50%; height:50%; margin-right: 25%; margin-left:25%;"/><br/><br/>
-                                <figcaption style="text-align:center;"><b>Pour pouvoir effectuer cette action, il suffit de vous connecter!</b></figcaption>
-                            </figure>
-                        </c:if>
+                               <c:if test="${!connecte}">
+                                   <figure>
+                                       <img src="${pageContext.request.contextPath}/resources/Warning.png" alt="Vous devez vous connecter" style="width:50%; height:50%; margin-right: 25%; margin-left:25%;"/><br/><br/>
+                                       <figcaption style="text-align:center;"><b>Pour pouvoir effectuer cette action, il suffit de vous connecter!</b></figcaption>
+                                   </figure>
+                               </c:if>
                     </div>
                         <jsp:include page="footer.jsp"/>
                      </div>
