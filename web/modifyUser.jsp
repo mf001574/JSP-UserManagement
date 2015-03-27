@@ -23,30 +23,36 @@
         <div class="pure-container" data-effect="pure-effect-reveal">
 
                 <jsp:include page="header.jsp"/>
+                
 
                 <div class="pure-pusher-container">
                     <div class="pure-pusher">
                     <div class="contenu">
-        
-                        <h3>Modifier les détails d'un utilisateur :</h3>
-                        <div id="form-area">
-                            <form action="ServletUsers" method="get">
-                                <label for="login">Login :</label>
-                                <input type="text" name="login"/>
+                        <c:if test="${connecte}">
+                            <h3>Modifier les détails d'un utilisateur :</h3>
+                            <div id="form-area">
+                                <form action="ServletUsers" method="get">
+                                    <label for="login">Login :</label>
+                                    <input type="text" name="login"/>
 
-                                <label for="nom">Nom :</label>
-                                <input type="text" name="nom"/>
+                                    <label for="nom">Nom :</label>
+                                    <input type="text" name="nom"/>
 
-                                <label for="prenom">Prenom :</label>
-                                <input type="text" name="prenom"/>
+                                    <label for="prenom">Prenom :</label>
+                                    <input type="text" name="prenom"/>
 
-                                <input type="hidden" name="action" value="updateUtilisateur"/>
+                                    <input type="hidden" name="action" value="updateUtilisateur"/>
 
-                                <input type="submit" value="Mettre à jour" name="submit" class="submit-button"/>
-                            </form>
+                                    <input type="submit" value="Mettre à jour" name="submit" class="submit-button"/>
+                                </form>
+
+                                <div style="clear: both;"></div>
+                            </div>
+                        </c:if>
                             
-                            <div style="clear: both;"></div>
-                        </div>
+                        <c:if test="${!connecte}">    
+                            Pour pouvoir effectuer une action, il suffit de vous connecter!
+                        </c:if>
                     </div>
                         <jsp:include page="footer.jsp"/>
                      </div>

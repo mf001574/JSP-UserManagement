@@ -16,10 +16,12 @@
         <div class="large-12 columns">
             <ul class="nav-primary">
                 <li><a href="index.jsp">Accueil</a></li>
-                <li><a href="createUser.jsp">Creer un compte utilisateur</a></li>
-                <li><a href="displayUser.jsp">Afficher les détails d'un utilisateur</a></li>
-                <li><a href="modifyUser.jsp">Modifier les détails d'un utilisateur</a></li>
-                <li><a href="deleteUser.jsp">Supprimer un utilisateur</a></li>
+                <c:if test="${connecte}">
+                    <li><a href="createUser.jsp">Creer un compte utilisateur</a></li>
+                    <li><a href="displayUser.jsp">Afficher les détails d'un utilisateur</a></li>
+                    <li><a href="modifyUser.jsp">Modifier les détails d'un utilisateur</a></li>
+                    <li><a href="deleteUser.jsp">Supprimer un utilisateur</a></li>
+                </c:if>
             </ul> 
         </div>
     </div>
@@ -33,7 +35,7 @@
 
             <c:if test="${!connecte}">
                     <input type="text" placeholder="Login" name="log" class='inputHeader'>
-                    <input type="text" placeholder="Password" name="pass" class='inputHeader'>
+                    <input type="password" placeholder="Password" name="pass" class='inputHeader'>
                     
                     <input type="hidden" name="action" value="checkConnexion">
                         

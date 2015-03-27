@@ -26,49 +26,55 @@
                 <jsp:include page="header.jsp"/>
 
                     <div class="contenu">
+                        <c:if test="${connecte}">
                      
-                        <h3>${nbTuples} utilisateurs enregistrés</h3>
+                            <h3>${nbTuples} utilisateurs enregistrés</h3>
 
-                        <!-- Message qui s'affiche lorsque la page est appelé avec un paramètre http message -->
-                        <c:if test="${!empty param['message']}">
-                            <h5>Reçu message : ${param.message}</h5>
-                        </c:if>
-                          
-                        <br/>
-                        <a href="ServletUsers?action=listerLesUtilisateurs">Afficher/raffraichir la liste de tous les utilisateurs</a>
-                        <br/><br/><br/><br/>
+                            <!-- Message qui s'affiche lorsque la page est appelé avec un paramètre http message -->
+                            <c:if test="${!empty param['message']}">
+                                <h5>Reçu message : ${param.message}</h5>
+                            </c:if>
 
-                        <!-- Zone qui affiche les utilisateurs si le paramètre action vaut listerComptes -->
-                        <c:if test="${param['action'] == 'listerLesUtilisateurs'}" >
+                            <br/>
+                            <a href="ServletUsers?action=listerLesUtilisateurs">Afficher/raffraichir la liste de tous les utilisateurs</a>
+                            <br/><br/><br/><br/>
 
-                            <table class="listing">
-                                <!-- La ligne de titre du tableau des comptes -->
-                                <tr>
-                                    <th><b>Login</b></th>
-                                    <th><b>Nom</b></th>
-                                    <th><b>Prénom</b></th>
-                                </tr>
+                            <!-- Zone qui affiche les utilisateurs si le paramètre action vaut listerComptes -->
+                            <c:if test="${param['action'] == 'listerLesUtilisateurs'}" >
 
-                                <!-- Ici on affiche les lignes, une par utilisateur -->
-                                <!-- cette variable montre comment on peut utiliser JSTL et EL pour calculer -->
-                                <c:set var="total" value="0"/>
-
-                                <c:forEach var="u" items="${requestScope['listeDesUsers']}">
+                                <table class="listing">
+                                    <!-- La ligne de titre du tableau des comptes -->
                                     <tr>
-                                        <td>${u.login}</td>
-                                        <td>${u.firstname}</td>
-                                        <td>${u.lastname}</td>
-                                        <!-- On compte le nombre de users -->
-                                        <c:set var="total" value="${total+1}"/>
+                                        <th><b>Login</b></th>
+                                        <th><b>Nom</b></th>
+                                        <th><b>Prénom</b></th>
                                     </tr>
-                                </c:forEach>
 
-                                <!-- Affichage du solde total dans la dernière ligne du tableau -->
-                                <tr><td><b>TOTAL</b></td><td></td><td><b>${total}</b></td></tr>
-                                <tr class='tfooter'><td><a href='ServletUsers?action=listerLesUtilisateurs&deplacement=pre' class='button-link'>Précédent</a></td><td>${indiceDepart}-${indiceFin}</td><td><a href='ServletUsers?action=listerLesUtilisateurs&deplacement=suiv' class='button-link'>Suivant</a></td></tr>
-                            </table>
-                         
+                                    <!-- Ici on affiche les lignes, une par utilisateur -->
+                                    <!-- cette variable montre comment on peut utiliser JSTL et EL pour calculer -->
+                                    <c:set var="total" value="0"/>
 
+                                    <c:forEach var="u" items="${requestScope['listeDesUsers']}">
+                                        <tr>
+                                            <td>${u.login}</td>
+                                            <td>${u.firstname}</td>
+                                            <td>${u.lastname}</td>
+                                            <!-- On compte le nombre de users -->
+                                            <c:set var="total" value="${total+1}"/>
+                                        </tr>
+                                    </c:forEach>
+
+                                    <!-- Affichage du solde total dans la dernière ligne du tableau -->
+                                    <tr><td><b>TOTAL</b></td><td></td><td><b>${total}</b></td></tr>
+                                    <tr class='tfooter'><td><a href='ServletUsers?action=listerLesUtilisateurs&deplacement=pre' class='button-link'>Précédent</a></td><td>${indiceDepart}-${indiceFin}</td><td><a href='ServletUsers?action=listerLesUtilisateurs&deplacement=suiv' class='button-link'>Suivant</a></td></tr>
+                                </table>
+
+
+                            </c:if>
+                        </c:if>
+                            
+                        <c:if test="${!connecte}">
+                            Pour pouvoir effectuer une action, il suffit de vous connecter!
                         </c:if>
                     </div>
                     <jsp:include page="footer.jsp"/>
