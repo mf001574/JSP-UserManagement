@@ -7,12 +7,7 @@
 <input type="checkbox" id="pure-toggle-left" class="pure-toggle" data-toggle="left"/>
 <label class="pure-toggle-label" for="pure-toggle-left" data-toggle-label="left">
     <span class="pure-toggle-icon"></span>
-    <div id="HeaderMilieu">
-        
-    </div>
-    <div id="HeaderDroite">
-        
-    </div>
+   
 </label>
 
 
@@ -29,6 +24,18 @@
                     </div>
                 </div>
             </nav>
+
+ <div class="pure-pusher-container">
+                    <div class="pure-pusher">
+                        <div class='header'>
+                            <h2>Gestion des utilisateurs </h2>
+                            <form method="post" id="formConnexion">
+                                <input type="text" placeholder="login" name="login" class='inputHeader'>
+                                <input type="text" placeholder="mot de passe" name="mdp" class='inputHeader'>
+                                <input type="submit" value="Se connecter" name="action" class='inputSubmitHeader'>
+                            </form> 
+                        </div> 
+                        <hr>
 
 <!--
 <div>

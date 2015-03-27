@@ -25,10 +25,10 @@
 
                 <jsp:include page="header.jsp"/>
 
-                <div class="pure-pusher-container">
-                    <div class="pure-pusher">
+               
                     <div class="contenu">
-                        <h3>Liste des utilisateurs</h3>
+                     
+                        <h3>${nbTuples} utilisateurs enregistrés</h3>
 
                         <!-- Message qui s'affiche lorsque la page est appelé avec un paramètre http message -->
                         <c:if test="${!empty param['message']}">
@@ -66,7 +66,7 @@
 
                                 <!-- Affichage du solde total dans la dernière ligne du tableau -->
                                 <tr><td><b>TOTAL</b></td><td></td><td><b>${total}</b></td></tr>
-                                <tr class='tfooter'><td><a href='ServletUsers?action=listerLesUtilisateurs&deplacement=pre' class='button-link'>Précédent</a></td><td></td><td><a href='ServletUsers?action=listerLesUtilisateurs&deplacement=suiv' class='button-link'>Suivant</a></td></tr>
+                                <tr class='tfooter'><td><a href='ServletUsers?action=listerLesUtilisateurs&deplacement=pre' class='button-link'>Précédent</a></td><td>${indiceDepart}-${indiceFin}</td><td><a href='ServletUsers?action=listerLesUtilisateurs&deplacement=suiv' class='button-link'>Suivant</a></td></tr>
                             </table>
                          
 

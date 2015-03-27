@@ -40,18 +40,32 @@ public class ServletUsers extends HttpServlet {
         String action = request.getParameter("action");
         String forwardTo = "";
         String message = "";
-        this.gestionnaireUtilisateurs.setIndice(0);
-
+        String deplacement = request.getParameter("deplacement");
+        if(deplacement == null){
+           this.gestionnaireUtilisateurs.setIndiceDepart(0);
+           this.gestionnaireUtilisateurs.setIndiceFin(10);
+        }
         if (action != null) {
             if (action.equals("listerLesUtilisateurs")) {
+                if(deplacement != null){
+                    if(deplacement.equals("suiv")){
+                        this.gestionnaireUtilisateurs.avancer();
+                    }else{
+                        this.gestionnaireUtilisateurs.reculer();
+                    }
+                }
+               
                 Collection<Utilisateur> liste = gestionnaireUtilisateurs.getAllUsers();
+                request.setAttribute("indiceDepart",this.gestionnaireUtilisateurs.getIndiceDepart());
+                request.setAttribute("indiceFin",this.gestionnaireUtilisateurs.getIndiceFin());
                 request.setAttribute("listeDesUsers", liste);
                 forwardTo = "index.jsp?action=listerLesUtilisateurs";
                 message = "Liste des utilisateurs";
+                
             } else if (action.equals("creerUtilisateursDeTest")) {
                 this.gestionnaireUtilisateurs.creerUtilisateursDeTest();
                 Collection<Utilisateur> liste = gestionnaireUtilisateurs.getAllUsers();
-                request.setAttribute("listeDesUsers", liste);
+               request.setAttribute("listeDesUsers", liste);
                 forwardTo = "index.jsp?action=listerLesUtilisateurs";
                 message = "Création de 4 utilisateurs";
             }else if(action.equals("creer100UtilisateursDeTest")){
@@ -97,7 +111,7 @@ public class ServletUsers extends HttpServlet {
                
             }
         }
-
+        request.setAttribute("nbTuples",this.gestionnaireUtilisateurs.getNbTuples());
         RequestDispatcher dp = request.getRequestDispatcher(forwardTo + "&message=" + message);
         dp.forward(request, response);
         // Après un forward, plus rien ne peut être exécuté après !
