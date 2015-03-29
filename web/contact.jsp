@@ -6,10 +6,13 @@
 
 
 <%@page import="mail.SendEmail" %>
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ page pageEncoding="UTF-8" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<c:set var="language" value="${not empty param.language ? param.language : not empty language ? language : pageContext.request.locale}" scope="session" />
+<fmt:setLocale value="${language}" />
+<fmt:setBundle basename="i18n.text" />
 <!DOCTYPE html>
-<!-- Ne pas oublier cette ligne sinon tous les tags de la JSTL seront ignorés ! -->
-<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -46,18 +49,23 @@
             <div class="pure-pusher-container">
                 <div class="pure-pusher">                    
                     <div class="contenu">
-                        <h3 style="margin-top:-25px;">Contactez-nous</h3>
+                        <h3 style="margin-top:-25px;"><fmt:message key="contact.h3.title" /></h3>
                         <div id="form-area">
                             <form action="contact.jsp" method="POST">
-                                <input type="text" placeholder="Prénom *" id="first_name" name="first_name" class='inputHeader' required>
+                                <fmt:message key="contact.placeholder.prenom" var="placeHolderPrenom" />
+                                <input type="text" placeholder="${placeHolderPrenom} *" id="first_name" name="first_name" class='inputHeader' required>
 
-                                <input type="text" placeholder="Nom *" id="last_name" name="last_name" class='inputHeader' required>
-                                                              
-                                <input type="email" placeholder="Email *" id="email" name="email" class='inputHeader' required>
-                                                                
-                                <input type="text" placeholder="Message" id="message" name="message" class='inputHeader' style="height:150px; ">
+                                <fmt:message key="contact.placeholder.nom" var="placeHolderNom" />
+                                <input type="text" placeholder="${placeHolderNom} *" id="last_name" name="last_name" class='inputHeader' required>
+                               
+                                <fmt:message key="contact.placeholder.email" var="placeHolderEmail" />
+                                <input type="email" placeholder="${placeHolderEmail} *" id="email" name="email" class='inputHeader' required>
+                                  
+                                <fmt:message key="contact.placeholder.message" var="placeHolderMessage" />
+                                <input type="text" placeholder="${placeHolderMessage}" id="message" name="message" class='inputHeader' style="height:150px; ">
                                 
-                                <input type="submit" name="send" value="Envoyer" id="send" class="submit-button"/>                          
+                                <fmt:message key="contact.button.submit" var="buttonSubmit" />
+                                <input type="submit" name="send" value="${buttonSubmit}" id="send" class="submit-button"/>                          
                             </form>                 
                             
                             <%
@@ -73,9 +81,9 @@
                                     
                                     if (mail.SendEmail.run(email, fullname, message)) {
                                     %>
-                                    <p class="goodtogo end">Mail Sent Successfully</p>
+                                    <p class="goodtogo end"><fmt:message key="contact.h3.mailSent" /></p>
                                     <%} else {%>
-                                    <p class="warning end">Error Sending Mail</p>
+                                    <p class="warning end"><fmt:message key="contact.p.mailError" /></p>
                                     <%}
                                 }
                             %>

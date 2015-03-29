@@ -6,10 +6,14 @@
 
 
 
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ page pageEncoding="UTF-8" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<c:set var="language" value="${not empty param.language ? param.language : not empty language ? language : pageContext.request.locale}" scope="session" />
+<fmt:setLocale value="${language}" />
+<fmt:setBundle basename="i18n.text" />
 <!DOCTYPE html>
 <!-- Ne pas oublier cette ligne sinon tous les tags de la JSTL seront ignorés ! -->
-<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -28,15 +32,16 @@
                 <div class="pure-pusher">
                     <div class="contenu">
                         <c:if test="${connecte}">
-                            <h3>Afficher les détails d'un utilisateur</h3>
+                            <h3><fmt:message key="displayUser.h3.title" /></h3>
                             <div id="form-area">
                                 <form action="ServletUsers" method="get">
-                                    <label for="login">Login : </label>
+                                    <label for="login"><fmt:message key="displayUser.label.login" />:</label>
                                     <input type="text" name="login"/>
 
                                     <input type="hidden" name="action" value="chercherParLogin"/>
 
-                                    <input type="submit" value="Chercher" name="submit" class="submit-button"/>
+                                    <fmt:message key="displayUser.button.submit" var="buttonValue" />
+                                    <input type="submit" value="${buttonValue}" name="submit" class="submit-button"/>
                                 </form>
 
                                 <div style="clear: both;"></div>
@@ -46,7 +51,7 @@
                         <c:if test="${!connecte}">
                             <figure>
                                 <img src="${pageContext.request.contextPath}/resources/Warning.png" alt="Vous devez vous connecter" style="width:50%; height:50%; margin-right: 25%; margin-left:25%;"/><br/><br/>
-                                <figcaption style="text-align:center;"><b>Pour pouvoir effectuer cette action, il suffit de vous connecter!</b></figcaption>
+                                <figcaption style="text-align:center;"><b><fmt:message key="createDeleteDisplayModify.figcaption.errorMessage" /></b></figcaption>
                             </figure>
                         </c:if>
                     </div>

@@ -3,7 +3,7 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <c:set var="language" value="${not empty param.language ? param.language : not empty language ? language : pageContext.request.locale}" scope="session" />
 <fmt:setLocale value="${language}" />
-<fmt:setBundle basename="com.example.i18n.text" />
+<fmt:setBundle basename="i18n.text" />
 <!DOCTYPE html>
 <html lang="${language}">
     <head>
@@ -13,7 +13,7 @@
         <form>
             <select id="language" name="language" onchange="submit()">
                 <option value="en" ${language == 'en' ? 'selected' : ''}>English</option>
-                <option value="es" ${language == 'fr' ? 'selected' : ''}>French</option>
+                <option value="fr" ${language == 'fr' ? 'selected' : ''}>French</option>
             </select>
         </form>
         <form method="post">

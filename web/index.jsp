@@ -4,12 +4,15 @@
     Author     : Florian Massa and Yoann Moise
 --%>
 
+<%@ page pageEncoding="UTF-8" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<c:set var="language" value="${not empty param.language ? param.language : not empty language ? language : pageContext.request.locale}" scope="session" />
+<fmt:setLocale value="${language}" />
+<fmt:setBundle basename="i18n.text" />
 
-
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <!-- Ne pas oublier cette ligne sinon tous les tags de la JSTL seront ignorés ! -->
-<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -28,15 +31,15 @@
             <div class="contenu">
                 <c:if test="${connecte}">
 
-                    <h3>${nbTuples} utilisateurs enregistrés</h3>
+                    <h3>${nbTuples} <fmt:message key="index.h3.nbUsers" /></h3>
 
                     <!-- Message qui s'affiche lorsque la page est appelé avec un paramètre http message -->
                     <c:if test="${!empty param['message']}">
-                        <h5>Reçu message : ${param.message}</h5>
+                        <h5><fmt:message key="index.h3.msgReceived" />: ${param.message}</h5>
                     </c:if>
 
                     <br/>
-                    <a href="ServletUsers?action=listerLesUtilisateurs">Afficher/raffraichir la liste de tous les utilisateurs</a>
+                    <a href="ServletUsers?action=listerLesUtilisateurs"><fmt:message key="index.h3.updateListUsers" /></a>
                     <br/><br/><br/><br/>
 
                     <!-- Zone qui affiche les utilisateurs si le paramètre action vaut listerComptes -->
@@ -45,9 +48,9 @@
                         <table class="listing">
                             <!-- La ligne de titre du tableau des comptes -->
                             <tr>
-                                <th><b>Login</b></th>
-                                <th><b>Nom</b></th>
-                                <th><b>Prénom</b></th>
+                                <th><b><fmt:message key="index.table.login" /></b></th>
+                                <th><b><fmt:message key="index.table.nom" /></b></th>
+                                <th><b><fmt:message key="index.table.prenom" /></b></th>
                             </tr>
 
                             <!-- Ici on affiche les lignes, une par utilisateur -->
@@ -66,7 +69,7 @@
 
                             <!-- Affichage du solde total dans la dernière ligne du tableau -->
                             <tr><td><b>TOTAL</b></td><td></td><td><b>${total}</b></td></tr>
-                            <tr class='tfooter'><td><a href='ServletUsers?action=listerLesUtilisateurs&deplacement=pre' class='button-link'>Précédent</a></td><td>${indiceDepart}-${indiceFin}</td><td><a href='ServletUsers?action=listerLesUtilisateurs&deplacement=suiv' class='button-link'>Suivant</a></td></tr>
+                            <tr class='tfooter'><td><a href='ServletUsers?action=listerLesUtilisateurs&deplacement=pre' class='button-link'><fmt:message key="index.td.previous" /></a></td><td>${indiceDepart}-${indiceFin}</td><td><a href='ServletUsers?action=listerLesUtilisateurs&deplacement=suiv' class='button-link'><fmt:message key="index.td.next" /></a></td></tr>
                         </table>
 
 
@@ -75,7 +78,7 @@
 
                 <c:if test="${!connecte}">
                     <figure>
-                        <figcaption style="text-align:center;"><b>Pour pouvoir effectuer une action, il suffit de vous connecter!</b></figcaption>
+                        <figcaption style="text-align:center;"><b><fmt:message key="index.figcaption.connectMsg" /></b></figcaption>
                     </figure>
                 </c:if>
             </div>

@@ -6,10 +6,13 @@
 
 
 
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<!-- Ne pas oublier cette ligne sinon tous les tags de la JSTL seront ignorés ! -->
-<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ page pageEncoding="UTF-8" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<c:set var="language" value="${not empty param.language ? param.language : not empty language ? language : pageContext.request.locale}" scope="session" />
+<fmt:setLocale value="${language}" />
+<fmt:setBundle basename="i18n.text" />
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -30,44 +33,47 @@
                         
                         <c:if test="${connecte}">
                                          
-                            <h3>Créer un utilisateur</h3>
+                            <h3><fmt:message key="createUser.h3.creerUnUtilisateur"/></h3>
                             <div id="form-area">
                                 <form action="ServletUsers" method="get">
-                                    <label for="nom">Nom :</label>
-                                    <input type="text" name="nom"/>
+                                    
+                                    <label for="nom"><fmt:message key="createUser.label.nom" />:</label>
+                                    <input type="text" id="nom" name="nom">
 
-                                    <label for="login">Prenom :</label>
-                                    <input type="text" name="prenom"/>
+                                    <label for="prenom"><fmt:message key="createUser.label.prenom" />:</label>
+                                    <input type="text" id="prenom" name="prenom">
 
-                                    <label for="login">Login :</label>
-                                    <input type="text" name="login"/>
+                                    <label for="login"><fmt:message key="createUser.label.login" />:</label>
+                                    <input type="text" id="login" name="login">
 
                                     <!-- Astuce pour passer des paramètres à une servlet depuis un formulaire JSP !-->
                                     <input type="hidden" name="action" value="creerUnUtilisateur"/>
 
-                                    <input type="submit" value="Créer l'utilisateur" name="submit" class="submit-button"/>
+                                    <fmt:message key="createUser.button.submitOne" var="buttonValueOne" />
+                                    <input type="submit" value="${buttonValueOne}" name="submit" class="submit-button"/>
                                 </form>
 
                                 <div style="clear: both;"></div>
                             </div>
-                            <h2 style="text-align:center;"> -- OU -- </h2>
-                                <h3>Créer 4 utilisateurs de test</h3>
+                            <h2 style="text-align:center;">-- <fmt:message key="createUser.h2.ou"/> --</h2>
+                                <h3><fmt:message key="createUser.h3.creerQuatreUtilisateurs"/></h3>
                                 <div id="form-area">
                                     <form action="ServletUsers" method="get">
                                         <!-- Astuce pour passer des paramètres à une servlet depuis un formulaire JSP !-->
-                                        <input type="hidden" name="action" value="creerUtilisateursDeTest"/>
-                                        <input type="submit" value="Créer 4 utilisateurs" name="submit" class="submit-button"/>
+                                        <input type="hidden" name="action" value="creerUtilisateursDeTest"/>                                       
+                                        <fmt:message key="createUser.button.submitFour" var="buttonValueFour" />
+                                        <input type="submit" value="${buttonValueFour}" name="submit" class="submit-button"/>
                                     </form>
                                     <div style="clear: both;"></div>
                                 </div>
-                               <h2 style="text-align:center;"> -- OU -- </h2>
-                               <h3>Créer 100 utilisateurs de test</h3>
+                               <h2 style="text-align:center;">-- <fmt:message key="createUser.h2.ou"/> --</h2>
+                               <h3><fmt:message key="createUser.h3.creerCentUtilisateurs"/></h3>
                                 <div id="form-area">
                                     <form action="ServletUsers" method="get">
                                         <!-- Astuce pour passer des paramètres à une servlet depuis un formulaire JSP !-->
                                         <input type="hidden" name="action" value="creer100UtilisateursDeTest"/>
-                                        <input type="submit" value="Créer 100 utilisateurs" name="submit" class="submit-button"/>
-                                    </form>
+                                        <fmt:message key="createUser.button.submitHundred" var="buttonValueHundred" />
+                                        <input type="submit" value="${buttonValueHundred}" name="submit" class="submit-button"/>                                    </form>
                                     <div style="clear: both;"></div>
                                 </div>
                         </c:if>
@@ -75,7 +81,7 @@
                                <c:if test="${!connecte}">
                                    <figure>
                                        <img src="${pageContext.request.contextPath}/resources/Warning.png" alt="Vous devez vous connecter" style="width:50%; height:50%; margin-right: 25%; margin-left:25%;"/><br/><br/>
-                                       <figcaption style="text-align:center;"><b>Pour pouvoir effectuer cette action, il suffit de vous connecter!</b></figcaption>
+                                       <figcaption style="text-align:center;"><b><fmt:message key="createDeleteDisplayModify.figcaption.errorMessage" /></b></figcaption>
                                    </figure>
                                </c:if>
                     </div>
