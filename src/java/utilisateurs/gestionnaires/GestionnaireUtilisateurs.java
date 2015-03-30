@@ -61,7 +61,7 @@ public class GestionnaireUtilisateurs {
         for(int i = 1 ; i<=100;i++){
             int indice1 = (int)(Math.random()*(nomsTest.length-1));
             int indice2 = (int)(Math.random()*(prenomsTest.length-1));
-            creeUtilisateur(nomsTest[indice1],prenomsTest[indice2],"user"+i);
+            creeUtilisateur(nomsTest[indice1],prenomsTest[indice2],"user"+this.nbTuples);
         }
     }
 

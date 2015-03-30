@@ -469,7 +469,7 @@ hr{
 #formLanguage {
     width:200px;
     float:right;
-    margin-top:-35px;
+    margin-top:-15px;
 }
 
 #formLanguage hr {
@@ -478,4 +478,9 @@ hr{
 
 #formLanguage h4 {
    color: white !important;
+}
+
+#phraseBas{
+    margin-top: -50px;
+    margin-left: -100px;
 }

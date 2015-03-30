@@ -31,7 +31,7 @@
                         <option value="fr" ${language == 'fr' ? 'selected' : ''}><fmt:message key="footer.option.FR" /></option>
                     </select>
                 </form>
-            <div class="large-12 columns">
+            <div class="large-12 columns" id='phraseBas'>
                 <p><fmt:message key="footer.p.description" /></p>
             </div>
         </div>
