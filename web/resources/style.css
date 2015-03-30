@@ -470,20 +470,7 @@ hr{
 #formLanguage {
     width:300px;
     float:right;
-    margin-top:-15px;
-}
-
-#formLanguage hr {
-    margin-top:-10px;
-}
-
-#formLanguage h4 {
-   color: white !important;
-}
-
-#phraseBas{
-    margin-top: -50px;
-    margin-left: -100px;
+    margin-top:-25px;
 }
 
 button{

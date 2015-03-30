@@ -24,17 +24,17 @@
         <script src="https://maps.googleapis.com/maps/api/js"></script>
         <script>
             function initialize() {
-              var mapCanvas = document.getElementById('map-canvas');
-              var mapOptions = {
-                center: new google.maps.LatLng(43.695949, 7.271413),
-                zoom: 12,
-                zoomControl: false,
-                scaleControl: false,
-                scrollwheel: false,
-                disableDoubleClickZoom: true,
-                mapTypeId: google.maps.MapTypeId.ROADMAP
-              }
-              var map = new google.maps.Map(mapCanvas, mapOptions);
+                var mapCanvas = document.getElementById('map-canvas');
+                var mapOptions = {
+                    center: new google.maps.LatLng(43.695949, 7.271413),
+                    zoom: 12,
+                    zoomControl: false,
+                    scaleControl: false,
+                    scrollwheel: false,
+                    disableDoubleClickZoom: true,
+                    mapTypeId: google.maps.MapTypeId.ROADMAP
+                }
+                var map = new google.maps.Map(mapCanvas, mapOptions);
             }
             google.maps.event.addDomListener(window, 'load', initialize);
         </script>
@@ -43,7 +43,7 @@
         <div class="pure-container" data-effect="pure-effect-reveal">
 
             <jsp:include page="header.jsp"/>
-            
+
             <div id="map-canvas"></div>
 
             <div class="pure-pusher-container">
@@ -57,44 +57,47 @@
 
                                 <fmt:message key="contact.placeholder.nom" var="placeHolderNom" />
                                 <input type="text" placeholder="${placeHolderNom} *" id="last_name" name="last_name" class='inputHeader' required>
-                               
+
                                 <fmt:message key="contact.placeholder.email" var="placeHolderEmail" />
                                 <input type="email" placeholder="${placeHolderEmail} *" id="email" name="email" class='inputHeader' required>
-                                  
+
                                 <fmt:message key="contact.placeholder.message" var="placeHolderMessage" />
                                 <input type="text" placeholder="${placeHolderMessage}" id="message" name="message" class='inputHeader' style="height:150px; ">
-                                
+
                                 <fmt:message key="contact.button.submit" var="buttonSubmit" />
                                 <input type="submit" name="send" value="${buttonSubmit}" id="send" class="submit-button"/>                          
                             </form>                 
-                            
+
                             <%
-                                if ((request.getParameter("last_name") != null) &&
-                                        (request.getParameter("first_name") != null) &&
-                                        (request.getParameter("email") != null)) {
+                                if ((request.getParameter("last_name") != null)
+                                        && (request.getParameter("first_name") != null)
+                                        && (request.getParameter("email") != null)) {
                                     String lastName = request.getParameter("last_name");
                                     String firstName = request.getParameter("first_name");
-                                    String fullname = firstName + " " + lastName;       
+                                    String fullname = firstName + " " + lastName;
                                     String email = request.getParameter("email");
                                     String message = "Message envoyé par " + fullname + " ( " + email + " ). \n \n";
                                     message += request.getParameter("message");
-                                    
+
                                     if (mail.SendEmail.run(email, fullname, message)) {
-                                    %>
-                                    <p class="goodtogo end"><fmt:message key="contact.h3.mailSent" /></p>
-                                    <%} else {%>
-                                    <p class="warning end"><fmt:message key="contact.p.mailError" /></p>
-                                    <%}
+                            %>
+                            <p class="goodtogo end"><fmt:message key="contact.h3.mailSent" /></p>
+                            <%} else {%>
+                            <p class="warning end"><fmt:message key="contact.p.mailError" /></p>
+                            <%}
                                 }
                             %>
 
 
                             <div style="clear: both;"></div>
                         </div>
-                        <jsp:include page="footer.jsp"/>
                     </div>
+                            </div></div>
+
+                    <jsp:include page="footer.jsp"/>
                 </div>
-                <label class="pure-overlay" for="pure-toggle-left" data-overlay="left"></label> 
-            </div>
+            </div> 
+            <label class="pure-overlay" for="pure-toggle-left" data-overlay="left"></label> 
+        </div>
     </body>
 </html>

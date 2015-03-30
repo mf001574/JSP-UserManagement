@@ -27,7 +27,6 @@
         <div class="pure-container" data-effect="pure-effect-reveal">
 
             <jsp:include page="header.jsp"/>
-
             <div class="contenu">
                 <c:if test="${connecte}">
 

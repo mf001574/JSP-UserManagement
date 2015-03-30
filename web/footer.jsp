@@ -10,26 +10,20 @@
 <fmt:setLocale value="${language}" />
 <fmt:setBundle basename="i18n.text" />
 
-<div id="footer">
-    <div class="footer section" id="features">
-        <div class="row">
-            <div class="large-12 columns">
-                <a href="http://miage.unice.fr/" style="margin-right:10px"><fmt:message key="footer.link.miageHome" /></a> |
-                <a href="http://florian-massa.com/" style="margin-left:10px; margin-right:10px"><fmt:message key="footer.link.massa" /></a> |
-                <a href="http://yoann-moise.com/" style="margin-left:10px"><fmt:message key="footer.link.moise" /></a>
-              <!--  <div id="language" name="language" onchange="submit()"> 
-                    <h4><fmt:message key="footer.h4.translate" /></h4>
-                    <hr/>
-                    <img src="${pageContext.request.contextPath}/resources/uk_icon.png" alt="UK" value="en" ${language == 'en' ? 'selected' : ''}>
-                    <img src="${pageContext.request.contextPath}/resources/france_icon.png" alt="France" value="fr" ${language == 'fr' ? 'selected' : ''}>   
-                </div>-->
-                
-                <form id="formLanguage" method="POST">
-                    <button name="language"  value="en" ${language == 'en' ? 'selected' : ''}<fmt:message key="footer.option.UK"/>><img src="${pageContext.request.contextPath}/resources/uk_icon.png"/></button>
-                    <button name="language"  value="es" ${language == 'es' ? 'selected' : ''}<fmt:message key="footer.option.ES"/>><img src="${pageContext.request.contextPath}/resources/es_icon.png"/></button>
-                    <button name="language"  value="fr" ${language == 'fr' ? 'selected' : ''}<fmt:message key="footer.option.FR"/>><img src="${pageContext.request.contextPath}/resources/fr_icon.png"/></button>                
-                </form> 
-        
+<footer class="footer section" id="features">
+    <div class="row">
+        <div class="large-12 columns">
+            <form id="formLanguage" method="POST">
+                <button name="language"  value="en" ${language == 'en' ? 'selected' : ''}<fmt:message key="footer.option.UK"/>><img src="${pageContext.request.contextPath}/resources/uk_icon.png"/></button>
+                <button name="language"  value="es" ${language == 'es' ? 'selected' : ''}<fmt:message key="footer.option.ES"/>><img src="${pageContext.request.contextPath}/resources/es_icon.png"/></button>
+                <button name="language"  value="fr" ${language == 'fr' ? 'selected' : ''}<fmt:message key="footer.option.FR"/>><img src="${pageContext.request.contextPath}/resources/fr_icon.png"/></button>                
+            </form> 
         </div>
+        <div class="large-12 columns">
+            <a href="http://miage.unice.fr/" style="margin-right:10px"><fmt:message key="footer.link.miageHome" /></a> |
+            <a href="http://florian-massa.com/" style="margin-left:10px; margin-right:10px"><fmt:message key="footer.link.massa" /></a> |
+            <a href="http://yoann-moise.com/" style="margin-left:10px"><fmt:message key="footer.link.moise" /></a>
+
+        </div> 
     </div>
-</div>
+</footer>
