@@ -25,9 +25,9 @@
                 </div>-->
                 
                 <form id="formLanguage" method="POST">
-                    <button name="language" value="fr"  ${language == 'fr' ? 'onclick' : ''}<fmt:message key="footer.option.FR" />><img src="${pageContext.request.contextPath}/resources/fr_icon.png"/> </button>
-                    <button  name="language"  value="en" ${language == 'en' ? 'selected' : ''}<fmt:message key="footer.option.UK"/>><img src="${pageContext.request.contextPath}/resources/uk_icon.png"/></button>
-                    <button  name="language"  value="es" ${language == 'es' ? 'selected' : ''}<fmt:message key="footer.option.ES"/>><img src="${pageContext.request.contextPath}/resources/es_icon.png"/></button>
+                    <button name="language"  value="en" ${language == 'en' ? 'selected' : ''}<fmt:message key="footer.option.UK"/>><img src="${pageContext.request.contextPath}/resources/uk_icon.png"/></button>
+                    <button name="language"  value="es" ${language == 'es' ? 'selected' : ''}<fmt:message key="footer.option.ES"/>><img src="${pageContext.request.contextPath}/resources/es_icon.png"/></button>
+                    <button name="language"  value="fr" ${language == 'fr' ? 'selected' : ''}<fmt:message key="footer.option.FR"/>><img src="${pageContext.request.contextPath}/resources/fr_icon.png"/></button>                
                 </form> 
         
         </div>

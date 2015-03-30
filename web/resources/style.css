@@ -468,7 +468,7 @@ hr{
 /* LANGUAGES - FOOTER */
 
 #formLanguage {
-    width:200px;
+    width:300px;
     float:right;
     margin-top:-15px;
 }
@@ -484,4 +484,9 @@ hr{
 #phraseBas{
     margin-top: -50px;
     margin-left: -100px;
+}
+
+button{
+    border:none;
+    background: transparent;
 }
