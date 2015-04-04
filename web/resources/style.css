@@ -525,15 +525,19 @@ button{
     margin-top: 20px;
     display: block;
     float: left;
-    margin-left: 25px;
+    margin-left: 50px;
 }
 .prenom{
     font-size:200%;
     font-style: italic;
     display: block;
     margin-top: 70px;
-    margin-left: 350px;
+    margin-left: 380px;
 }
 .detailU:hover{
     background-color:rgb(250,250,250);
+}
+.index{
+    float:right;
+    margin-top:-30px;
 }

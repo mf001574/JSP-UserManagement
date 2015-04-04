@@ -93,7 +93,19 @@ public class ServletUsers extends HttpServlet {
                 forwardTo = "index.jsp?action=ResultatRecherche&deplacement=suiv";
                 message = "Recherche par login";
                 String login = (String) request.getParameter("login");
-                request.setAttribute("listeDesUsers", this.gestionnaireUtilisateurs.getUtilisateursWithLogin(login));
+                if(deplacement != null){
+                    if(deplacement.equals("suiv")){
+                        this.gestionnaireUtilisateurs.avancer();
+                    }else{
+                        this.gestionnaireUtilisateurs.reculer();
+                    }
+                }
+                Collection<Utilisateur> res = this.gestionnaireUtilisateurs.getUtilisateursWithLogin(login);
+                if (res.size() ==0 && this.gestionnaireUtilisateurs.getIndiceDepart()!=0){
+                    this.gestionnaireUtilisateurs.reculer();
+                    res = this.gestionnaireUtilisateurs.getUtilisateursWithLogin(login);
+                }
+                request.setAttribute("listeDesUsers", res);
                 
             }else if(action.equals("updateUtilisateur")){
                 forwardTo = "index.jsp?action=listerLesUtilisateurs&deplacement=suiv";
@@ -104,7 +116,6 @@ public class ServletUsers extends HttpServlet {
                 this.gestionnaireUtilisateurs.majUtilisateur(login,nom,prenom);
                 Collection<Utilisateur> liste = this.gestionnaireUtilisateurs.getAllUsers();
                 request.setAttribute("listeDesUsers", liste);
-                
             }else{
                 forwardTo = "index.jsp?action=todo";
                 message = "La fonctionnalité pour le paramètre " + action + " est à implémenter !";

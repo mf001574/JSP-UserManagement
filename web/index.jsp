@@ -74,7 +74,12 @@
 
                     </c:if>
                     <c:if test="${param['action'] == 'ResultatRecherche'}" >
-                        
+                        <a href='ServletUsers?action=chercherParLogin&deplacement=pre&login=${param['login']}'>pre</a> - 
+                        <a href='ServletUsers?action=chercherParLogin&deplacement=suiv&login=${param['login']}'>suiv</a>
+                        <br/><br/>
+                        <div class='index'>
+                        ${indiceDepart}-${indiceFin}
+                        </div>
                             <c:forEach var="u" items="${requestScope['listeDesUsers']}">
                                 <div class='detailU'>
                                   <figure>
@@ -87,7 +92,7 @@
                                   
                                 </div>
                             </c:forEach>
-                        
+                       
                     </c:if>
                 </c:if>
 
