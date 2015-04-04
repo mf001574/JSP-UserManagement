@@ -20,9 +20,9 @@
             </form> 
         </div>
         <div class="large-12 columns">
-            <a href="http://miage.unice.fr/" style="margin-right:10px"><fmt:message key="footer.link.miageHome" /></a> |
-            <a href="http://florian-massa.com/" style="margin-left:10px; margin-right:10px"><fmt:message key="footer.link.massa" /></a> |
-            <a href="http://yoann-moise.com/" style="margin-left:10px"><fmt:message key="footer.link.moise" /></a>
+            <a href="http://miage.unice.fr/" target='_blank' style="margin-right:10px"><fmt:message key="footer.link.miageHome" /></a> |
+            <a href="http://florian-massa.com/" target='_blank' style="margin-left:10px; margin-right:10px"><fmt:message key="footer.link.massa" /></a> |
+            <a href="http://yoann-moise.com/" target='_blank' style="margin-left:10px"><fmt:message key="footer.link.moise" /></a>
 
         </div> 
     </div>

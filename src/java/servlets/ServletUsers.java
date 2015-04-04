@@ -56,8 +56,7 @@ public class ServletUsers extends HttpServlet {
                 }
                
                 Collection<Utilisateur> liste = gestionnaireUtilisateurs.getAllUsers();
-                request.setAttribute("indiceDepart",this.gestionnaireUtilisateurs.getIndiceDepart());
-                request.setAttribute("indiceFin",this.gestionnaireUtilisateurs.getIndiceFin());
+               
                 request.setAttribute("listeDesUsers", liste);
                 forwardTo = "index.jsp?action=listerLesUtilisateurs";
                 message = "Liste des utilisateurs";
@@ -84,19 +83,20 @@ public class ServletUsers extends HttpServlet {
                 Collection<Utilisateur> liste = this.gestionnaireUtilisateurs.getAllUsers();
                 request.setAttribute("listeDesUsers", liste);
             }else if(action.equals("supprimerUnUtilisateur")){
-                forwardTo = "index.jsp?action=listerLesUtilisateurs";
+                forwardTo = "index.jsp?action=listerLesUtilisateurs&deplacement=suiv";
                 message = "Liste des utilisateurs";
                 String login = (String) request.getParameter("login");
                 this.gestionnaireUtilisateurs.supprimerUtilisateur(login);
                 Collection<Utilisateur> liste = this.gestionnaireUtilisateurs.getAllUsers();
                 request.setAttribute("listeDesUsers", liste);
             }else if(action.equals("chercherParLogin")){
-                forwardTo = "index.jsp?action=listerLesUtilisateurs";
+                forwardTo = "index.jsp?action=ResultatRecherche&deplacement=suiv";
                 message = "Recherche par login";
                 String login = (String) request.getParameter("login");
                 request.setAttribute("listeDesUsers", this.gestionnaireUtilisateurs.getUtilisateursWithLogin(login));
+                
             }else if(action.equals("updateUtilisateur")){
-                forwardTo = "index.jsp?action=listerLesUtilisateurs";
+                forwardTo = "index.jsp?action=listerLesUtilisateurs&deplacement=suiv";
                 message = "Mise à jour d'un utilisateur";
                 String nom = (String) request.getParameter("nom");
                 String prenom = (String)request.getParameter("prenom");
@@ -111,6 +111,8 @@ public class ServletUsers extends HttpServlet {
                
             }
         }
+        request.setAttribute("indiceDepart",this.gestionnaireUtilisateurs.getIndiceDepart());
+        request.setAttribute("indiceFin",this.gestionnaireUtilisateurs.getIndiceFin());
         request.setAttribute("nbTuples",this.gestionnaireUtilisateurs.getNbTuples());
         RequestDispatcher dp = request.getRequestDispatcher(forwardTo + "&message=" + message);
         dp.forward(request, response);

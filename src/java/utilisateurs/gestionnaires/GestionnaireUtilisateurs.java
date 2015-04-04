@@ -81,7 +81,9 @@ public class GestionnaireUtilisateurs {
     
     }
     public Collection<Utilisateur> getUtilisateursWithLogin(String login){
-        Query q = em.createQuery("select u from Utilisateur u where u.login like '%"+login+"%'");
+        Query q = em.createQuery("select u from Utilisateur u where u.login like '%"+login+"%' order by u.login");
+        q.setFirstResult(this.indiceDepart);
+        q.setMaxResults(10);
         return q.getResultList();
     }
     public Collection<Utilisateur> getAllUsers() {

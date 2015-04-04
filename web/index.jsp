@@ -73,6 +73,22 @@
 
 
                     </c:if>
+                    <c:if test="${param['action'] == 'ResultatRecherche'}" >
+                        
+                            <c:forEach var="u" items="${requestScope['listeDesUsers']}">
+                                <div class='detailU'>
+                                  <figure>
+                                    <img src="resources/profil.jpg">
+                                    <figcaption><b>${u.login}</b></figcaption>
+                                  </figure>
+                                
+                                    <span class='nom'>${u.firstname}</span>
+                                    <span class='prenom'>${u.lastname}</span>
+                                  
+                                </div>
+                            </c:forEach>
+                        
+                    </c:if>
                 </c:if>
 
                 <c:if test="${!connecte}">
