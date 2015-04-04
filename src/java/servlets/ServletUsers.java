@@ -66,16 +66,16 @@ public class ServletUsers extends HttpServlet {
                 this.gestionnaireUtilisateurs.creerUtilisateursDeTest();
                 Collection<Utilisateur> liste = gestionnaireUtilisateurs.getAllUsers();
                request.setAttribute("listeDesUsers", liste);
-                forwardTo = "index.jsp?action=listerLesUtilisateurs";
+                forwardTo = "index.jsp?action=listerLesUtilisateurs&deplacement=suiv";
                 message = "Création de 4 utilisateurs";
             }else if(action.equals("creer100UtilisateursDeTest")){
                 this.gestionnaireUtilisateurs.creer100UtilisateursDeTest();
                 Collection<Utilisateur> liste = gestionnaireUtilisateurs.getAllUsers();
                 request.setAttribute("listeDesUsers", liste);
-                forwardTo = "index.jsp?action=listerLesUtilisateurs";
+                forwardTo = "index.jsp?action=listerLesUtilisateurs&deplacement=suiv";
                 message = "Création de 100 utilisateurs";
             }else if(action.equals("creerUnUtilisateur")){
-                forwardTo = "index.jsp?action=listerLesUtilisateurs";
+                forwardTo = "index.jsp?action=listerLesUtilisateurs&deplacement=suiv";
                 message = "Liste des utilisateurs";
                 String nom = (String) request.getParameter("nom");
                 String prenom = (String)request.getParameter("prenom");

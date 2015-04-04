@@ -339,6 +339,27 @@ div.about {
 	float: right;
 }
 
+.form-area2 {
+	width: 600px;
+	margin-top: 25px;
+}
+
+.form-area2 input {
+	padding: 5px;
+	width: 471px;
+	font-family: Helvetica, sans-serif;
+	font-size: 1.4em;
+	margin: 0px 0px 10px 0px;
+	border: 2px solid #ccc;
+}
+
+
+.form-area2 input.submit-button {
+	width: 200px;
+	float: right;
+        margin-right: 190px;
+}
+
 label {
 	float: left;
 	text-align: right;

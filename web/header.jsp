@@ -11,6 +11,7 @@
 <fmt:setLocale value="${language}" />
 <fmt:setBundle basename="i18n.text" />
 
+
 <input type="checkbox" id="pure-toggle-left" class="pure-toggle" data-toggle="left"/>
 <label class="pure-toggle-label" for="pure-toggle-left" data-toggle-label="left">
     <span class="pure-toggle-icon"></span>
