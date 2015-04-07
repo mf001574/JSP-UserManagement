@@ -362,9 +362,10 @@ div.about {
 
 label {
 	float: left;
-	text-align: right;
+	text-align: left;
 	margin-right: 15px;
-	width: 100px;
+        margin-bottom: 2px;
+	width: 150px;
 	padding-top: 5px;
 	font-size: 1.4em;
 }

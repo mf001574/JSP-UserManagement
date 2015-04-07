@@ -46,9 +46,9 @@
                             <h3><fmt:message key="createUser.h3.creerUnUtilisateur"/></h3>
                             <div id="tabs">
                                 <ul>
-                                  <li><a href="#tabs-1">1 utilisateur</a></li>
-                                  <li><a href="#tabs-2">4 utilisateurs</a></li>
-                                  <li><a href="#tabs-3">100 utilisateurs</a></li>
+                                  <li><a href="#tabs-1"><fmt:message key="createUser.a.one" /></a></li>
+                                  <li><a href="#tabs-2"><fmt:message key="createUser.a.four" /></a></li>
+                                  <li><a href="#tabs-3"><fmt:message key="createUser.a.hundred" /></a></li>
                                 </ul>
                                 <div class="form-area2" id="tabs-1">
                                     <form action="ServletUsers" method="get">

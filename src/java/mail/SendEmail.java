@@ -20,13 +20,13 @@ public class SendEmail {
     public static boolean run(String addressedTo, String subject, String content) {
 
         String fromAddress = addressedTo.trim();
-        String recipients = "florian.m.06@gmail.com"; //Your Email Address//
+        String recipients = "YOUREMAIL"; //Your Email Address//
         String contentType = "text/plain";
 
         String smtpHost = "smtp.gmail.com"; //Your Outgoing Mailbox//
         int smtpPort = 587;
-        String username = "florian.m.06@gmail.com";//Your Mailbox Username//
-        String password = "blitzball";//Your Mailbox Password//
+        String username = "YOUREMAIL";//Your Mailbox Username//
+        String password = "PASSWORD";//Your Mailbox Password//
 
         try
         {
